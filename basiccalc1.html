@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<input type="number" placeholder="0" id="ndisplay">
+
+	<br>
+	<br>
+
+	
+	<button onclick="attachNumber(this)" style="color: blue">1</button>
+	<button onclick="attachNumber(this)" style="color: blue">2</button>
+	<button onclick="attachNumber(this)" style="color: blue">3</button>
+
+	<br>
+
+	<button onclick="attachNumber(this)" style="color: blue">4</button>
+	<button onclick="attachNumber(this)" style="color: blue">5</button>
+	<button onclick="attachNumber(this)" style="color: blue">6</button>
+
+	<br>
+
+	<button onclick="attachNumber(this)" style="color: blue">7</button>
+	<button onclick="attachNumber(this)" style="color: blue">8</button>
+	<button onclick="attachNumber(this)" style="color: blue">9</button>
+
+	<br>
+
+	<button  onclick="attachNumber(this)" style="color: blue">0</button>
+	<button id="nplus" onclick="doAdd(this)" style="color: blue">+</button>
+	<button id="nminus" onclick="doSubtract(this)" style="color: blue">-</button>
+
+	<br>
+
+	<button onclick="doDivide(this)" style="color: blue">/</button>
+	<button onclick="doMultiply(this)" style="color: blue">*</button>
+	<button id="nequals" onclick="result(this)" style="color: blue">=</button>
+
+	<script type="text/javascript">
+		let n = document.getElementById('ndisplay');
+		let numberHolder;
+		let optr;
+
+		function attachNumber(e){
+			n.value += e.innerHTML;
+		}
+
+		function doAdd(){
+			optr = "+";
+			numberHolder = parseInt(n.value);
+			n.value = ""
+		}
+		function doSubtract(){
+			optr = "-";
+			numberHolder = parseInt(n.value);
+			n.value = ""
+		}
+		function doDivide(){
+			optr = "/";
+			numberHolder = parseInt(n.value);
+			n.value = ""
+		}
+		function doMultiply(){
+			optr = "*";
+			numberHolder = parseInt(n.value);
+			n.value = ""
+		}
+
+
+		function result (){
+			switch (optr){
+				case "+":
+					n.value = numberHolder + parseInt(n.value);
+					break
+				case "-":
+					n.value = numberHolder - parseInt(n.value);
+					break
+				case "/":
+					n.value = numberHolder / parseInt(n.value);
+					break
+				case "*":
+					n.value = numberHolder * parseInt(n.value);
+					break
+				default:
+					console.log('no operator defined');
+					break
+			}
+
+		}
+	</script>
+
+
+
+
+</body>
+</html>
